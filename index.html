@@ -53,12 +53,22 @@
 
     nav span{opacity:.9}
 
-    .hero-photo{
-      display:block;
-      width:355px;
-      max-width:75vw;
-      height:auto;
-    }
+   .hero-photo{
+    width:min(70vw, 350px);
+    -webkit-mask-image:linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 70%,
+    transparent 100%
+  );
+  
+  mask-image:linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 70%,
+    transparent 100%
+  );
+}
 
     .dash{
       width:24px;
