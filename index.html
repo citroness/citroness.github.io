@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>citroness</title>
+  <meta name="description" content="citroness — diary, photos, music and links">
+  <style>
+    :root{
+      --green:#0b2a21;
+      --cream:#eee7d6;
+      --muted:rgba(238,231,214,.78);
+      --line:rgba(238,231,214,.75);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      background:var(--green);
+      color:var(--cream);
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing:.055em;
+    }
+
+    a{color:inherit;text-decoration:none}
+    a:hover{opacity:.62}
+
+    .page{
+      width:min(100% - 40px, 780px);
+      margin:0 auto;
+    }
+
+    .hero{
+      min-height:920px;
+      padding-top:140px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:28px;
+      flex-wrap:wrap;
+      font-size:18px;
+      letter-spacing:.18em;
+      margin-bottom:110px;
+    }
+
+    nav span{opacity:.9}
+
+    .hero-photo{
+      display:block;
+      width:355px;
+      max-width:75vw;
+      height:auto;
+    }
+
+    .dash{
+      width:24px;
+      height:1px;
+      background:var(--line);
+      margin-top:72px;
+    }
+
+    .diary{
+      min-height:590px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:110px;
+      align-items:start;
+      padding:70px 0 120px;
+    }
+
+    .copy{padding-top:10px}
+
+    h1{
+      margin:0 0 24px;
+      font-size:31px;
+      font-weight:400;
+      letter-spacing:.12em;
+    }
+
+    time{
+      display:block;
+      margin-bottom:34px;
+      font-size:15px;
+      font-style:italic;
+      color:var(--muted);
+      letter-spacing:.12em;
+    }
+
+    .entry{
+      margin:0 0 34px;
+      font-size:18px;
+      line-height:1.55;
+      letter-spacing:.06em;
+    }
+
+    .read-more{
+      display:inline-block;
+      font-size:17px;
+      padding-bottom:4px;
+      border-bottom:1px solid var(--cream);
+    }
+
+    .moon-photo{
+      width:240px;
+      max-width:34vw;
+      justify-self:end;
+    }
+
+    footer{
+      text-align:center;
+      padding:25px 0 62px;
+      font-size:15px;
+      letter-spacing:.08em;
+    }
+
+    @media (max-width:700px){
+      .page{width:min(100% - 34px, 780px)}
+
+      .hero{
+        min-height:760px;
+        padding-top:105px;
+      }
+
+      nav{
+        gap:14px 17px;
+        font-size:13px;
+        margin-bottom:80px;
+        letter-spacing:.12em;
+      }
+
+      .hero-photo{width:min(70vw, 350px)}
+      .dash{margin-top:58px}
+
+      .diary{
+        min-height:auto;
+        grid-template-columns:1fr 1fr;
+        gap:28px;
+        padding:70px 0 110px;
+      }
+
+      h1{font-size:27px}
+      time{font-size:13px}
+      .entry{font-size:16px}
+      .read-more{font-size:15px}
+
+      .moon-photo{
+        width:100%;
+        max-width:none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" id="top">
+      <nav aria-label="Main navigation">
+        <a href="#diary">diary</a>
+        <span>/</span>
+        <a href="#photos">photos</a>
+        <span>/</span>
+        <a href="#music">music</a>
+        <span>/</span>
+        <a href="#links">links</a>
+      </nav>
+
+      <img class="hero-photo" src="hero.jpg" alt="Sunlit room with a table by a window">
+      <div class="dash"></div>
+    </section>
+
+    <section class="diary" id="diary">
+      <div class="copy">
+        <h1>diary</h1>
+        <time datetime="2026-08-14">14 august 2026</time>
+        <p class="entry">
+          small moments.<br>
+          good music.<br>
+          a long walk.<br>
+          that’s enough.
+        </p>
+        <a class="read-more" href="#">read more</a>
+      </div>
+
+      <img class="moon-photo" id="photos" src="moon.jpg" alt="A crescent moon above a tree">
+    </section>
+  </main>
+
+  <footer>© 2026</footer>
+</body>
+</html>
