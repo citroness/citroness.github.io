@@ -121,18 +121,23 @@
       border-bottom:1px solid var(--cream);
     }
 
-    ..moon-photo{
+    .moon-photo{
   width:260px;
   max-width:34vw;
   justify-self:end;
   margin-top:80px;
-  transform:translateY(65px)
-  opacity:0.45;
+
   -webkit-mask-image: radial-gradient(
-  ellipse,
-  black 55%,
-  transparent 78%
-);
+    ellipse at center,
+    black 30%,
+    transparent 68%
+  );
+  mask-image: radial-gradient(
+    ellipse at center,
+    black 30%,
+    transparent 68%
+  );
+}
 mask-image: radial-gradient(
   ellipse,
   black 55%,
