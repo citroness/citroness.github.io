@@ -180,8 +180,25 @@
   letter-spacing:.12em;
 }
 
-      .hero-photo{width:min(70vw, 350px)}
-      .dash{margin-top:58px}
+     .hero-photo{
+  width:min(60vw, 300px);
+
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    #000 25%,
+    rgba(0,0,0,.9) 40%,
+    rgba(0,0,0,.45) 65%,
+    transparent 100%
+  );
+
+  mask-image: radial-gradient(
+    ellipse at center,
+    #000 25%,
+    rgba(0,0,0,.9) 40%,
+    rgba(0,0,0,.45) 65%,
+    transparent 100%
+  );
+}
 
       .diary{
         min-height:auto;
