@@ -206,6 +206,36 @@
   </main>
 
   <footer>citroness by toma© 2026 </footer>
- 
+ <script>
+function loadTumblr(data) {
+  const post = data.response.posts[0];
+
+  if (!post) return;
+
+  const date = new Date(post.timestamp * 1000);
+
+  document.getElementById("diary-date").textContent =
+    date.toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    }).toLowerCase();
+
+  let text = "";
+
+  if (post.body) {
+    const temp = document.createElement("div");
+    temp.innerHTML = post.body;
+    text = temp.textContent.trim();
+  } else if (post.summary) {
+    text = post.summary;
+  }
+
+  document.getElementById("diary-entry").textContent = text;
+  document.querySelector(".read-more").href = post.post_url;
+}
+</script>
+
+<script src="https://api.tumblr.com/v2/blog/citroness.tumblr.com/posts?api_key=ここにConsumerKey&limit=1&callback=loadTumblr"></script>
 </body>
 </html>
