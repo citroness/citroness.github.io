@@ -53,15 +53,26 @@
 
     nav span{opacity:.9}
 
-   .hero-photo{
-  width:min(60vw, 300px);
+.moon-photo{
+  width:320px;
+  max-width:44vw;
+  justify-self:end;
+  margin-top:60px;
 
-  -webkit-mask-image: radial-gradient(
-    ellipse at center,
-    #000 25%,
-    rgba(0,0,0,.9) 40%,
-    rgba(0,0,0,.45) 65%,
+  -webkit-mask-image:radial-gradient(
+    85% 70% at center,
+    black 55%,
+    rgba(0,0,0,.7) 72%,
     transparent 100%
+  );
+
+  mask-image:radial-gradient(
+    85% 70% at center,
+    black 55%,
+    rgba(0,0,0,.7) 72%,
+    transparent 100%
+  );
+}
   );
 
   mask-image: radial-gradient(
