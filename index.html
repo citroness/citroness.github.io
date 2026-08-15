@@ -206,29 +206,6 @@
   </main>
 
   <footer>citroness by toma© 2026 </footer>
-  <script>
-fetch("https://api.rss2json.com/v1/api.json?rss_url=https://citroness.tumblr.com/rss")
-  .then(response => response.json())
-  .then(data => {
-    const post = data.items[0];
-
-    const date = new Date(post.pubDate);
-    document.getElementById("diary-date").textContent =
-      date.toLocaleDateString("en-GB", {
-        day: "numeric",
-        month: "long",
-        year: "numeric"
-      }).toLowerCase();
-
-    const temp = document.createElement("div");
-    temp.innerHTML = post.description;
-
-    document.getElementById("diary-entry").textContent =
-      temp.textContent.trim();
-
-    document.querySelector(".read-more").href = post.link;
-  })
-  .catch(error => console.log(error));
-</script>
+ 
 </body>
 </html>
