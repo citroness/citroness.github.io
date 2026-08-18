@@ -295,23 +295,38 @@ function loadTumblr(data) {
 }
 
 fetch("https://api.github.com/repos/citroness/citroness.github.io/issues?state=open")
-  .then(response => response.json())
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("GitHub API error: " + response.status);
+    }
+    return response.json();
+  })
   .then(issues => {
     const gallery = document.getElementById("photos");
 
-    issues
-      .filter(issue => issue.title.toLowerCase() === "photo")
-      .forEach(issue => {
-        const matches = issue.body?.match(/https:\/\/github\.com\/user-attachments\/assets\/[^\s)]+/g) || [];
+    const photoIssues = issues.filter(
+      issue => issue.title.trim().toLowerCase() === "photo"
+    );
 
-        matches.forEach(url => {
-          const img = document.createElement("img");
-          img.src = url;
-          img.alt = "";
-          img.loading = "lazy";
-          gallery.appendChild(img);
-        });
+    photoIssues.forEach(issue => {
+      const body = issue.body || "";
+      const matches = [...body.matchAll(/!\[[^\]]*\]\((https:\/\/[^)]+)\)/g)];
+
+      matches.forEach(match => {
+        const img = document.createElement("img");
+        img.src = match[1];
+        img.alt = "";
+        img.loading = "lazy";
+        gallery.appendChild(img);
       });
+    });
+
+    if (!gallery.children.length) {
+      gallery.textContent = "No photos found";
+    }
+  })
+  .catch(error => {
+    document.getElementById("photos").textContent = error.message;
   });
 
 
