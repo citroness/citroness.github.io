@@ -293,6 +293,28 @@ function loadTumblr(data) {
   document.getElementById("diary-entry").textContent = text;
   document.querySelector(".read-more").href = "https://www.tumblr.com/citroness";
 }
+
+fetch("https://api.github.com/repos/citroness/citroness.github.io/issues?state=open")
+  .then(response => response.json())
+  .then(issues => {
+    const gallery = document.getElementById("photos");
+
+    issues
+      .filter(issue => issue.title.toLowerCase() === "photo")
+      .forEach(issue => {
+        const matches = issue.body?.match(/https:\/\/github\.com\/user-attachments\/assets\/[^\s)]+/g) || [];
+
+        matches.forEach(url => {
+          const img = document.createElement("img");
+          img.src = url;
+          img.alt = "";
+          img.loading = "lazy";
+          gallery.appendChild(img);
+        });
+      });
+  });
+
+
 </script>
 
 <script src="https://api.tumblr.com/v2/blog/citroness.tumblr.com/posts?api_key=psJ3naNGGCIX34uXRuAJZZJ0LkZMi59ZhsqslhtyjqTTwAq6tD&limit=1&callback=loadTumblr"></script>
